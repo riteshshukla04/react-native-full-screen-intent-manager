@@ -183,5 +183,8 @@
     "type": "module-legacy",
     "languages": "kotlin-swift",
     "version": "0.40.0"
+  },
+  "directories": {
+    "example": "example"
   }
 }

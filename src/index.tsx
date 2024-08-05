@@ -17,13 +17,13 @@ const FullScreenIntentManager = NativeModules.FullScreenIntentManager
       }
     );
 
-export function requestFullScreenIntentPermission(): Promise<void> {
+export function requestFullScreenIntentPermission() {
   if (Platform.OS === 'android') {
     FullScreenIntentManager.openFullScreenIntentSettings();
   }
 }
 
-export function canUseFullScreenIntent(): Promise<boolean> {
+export function canUseFullScreenIntent() {
   if (Platform.OS === 'android') {
     return FullScreenIntentManager.hasFullScreenIntentPermission();
   }
