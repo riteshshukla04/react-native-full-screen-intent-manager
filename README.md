@@ -12,11 +12,20 @@ npm install react-native-full-screen-intent-manager
 
 
 ```js
-import { multiply } from 'react-native-full-screen-intent-manager';
+import {
+  requestFullScreenIntentPermission,
+  canUseFullScreenIntent,
+} from 'react-native-full-screen-intent-manager';
 
-// ...
 
-const result = await multiply(3, 7);
+// Check Full Screen Permission
+const result = await canUseFullScreenIntent();
+
+
+//get Full Screen Permission
+const result = await requestFullScreenIntentPermission();
+
+
 ```
 
 

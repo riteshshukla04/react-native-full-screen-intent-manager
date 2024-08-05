@@ -1,6 +1,6 @@
 {
   "name": "react-native-full-screen-intent-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A package to manage full screen intents in React Native",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
