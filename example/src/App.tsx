@@ -1,17 +1,27 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-full-screen-intent-manager';
+import {
+  requestFullScreenIntentPermission,
+  canUseFullScreenIntent,
+} from 'react-native-full-screen-intent-manager';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const [result, setResult] = useState<boolean>(false);
+  const checkPermission = async () => {
+    const hasPermision = await canUseFullScreenIntent();
+    setResult(hasPermision);
+    if (!hasPermision) {
+      requestFullScreenIntentPermission();
+    }
+  };
 
   useEffect(() => {
-    multiply(3, 7).then(setResult);
+    checkPermission();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Has permission: {`${result}`}</Text>
     </View>
   );
 }

@@ -17,6 +17,14 @@ const FullScreenIntentManager = NativeModules.FullScreenIntentManager
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return FullScreenIntentManager.multiply(a, b);
+export function requestFullScreenIntentPermission(): Promise<void> {
+  if (Platform.OS === 'android') {
+    FullScreenIntentManager.openFullScreenIntentSettings();
+  }
+}
+
+export function canUseFullScreenIntent(): Promise<boolean> {
+  if (Platform.OS === 'android') {
+    return FullScreenIntentManager.hasFullScreenIntentPermission();
+  }
 }
