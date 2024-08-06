@@ -2,6 +2,8 @@
 
 A package to manage full screen intents in React Native
 
+## Requires Target SDK and compile SDK > 34
+
 ## Installation
 
 ```sh
